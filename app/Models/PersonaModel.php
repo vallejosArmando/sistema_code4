@@ -35,12 +35,12 @@ extends Model
         $builder = $builder->like(['am' => $am]);
 
 
-        return  $builder = $builder->get()->getResultArray();
-        //    if( $builder >0){
-        //        return $builder;
-        //    }else{
-        //        return false;
-        //    }
+        $builder = $builder->get()->getResultArray();
+        if ($builder > 0) {
+            return $builder;
+        } else {
+            return false;
+        }
 
     }
     public function listar()

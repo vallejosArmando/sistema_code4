@@ -27,9 +27,10 @@
     </div>
     <div class="container mt-5">
 
-        <select class=" form-control" name="ap" id="ap"></select>
+        <select class=" search form-control" name="ap" id="ap"></select>
 
     </div>
+    <div id="tabla"></div>
     <div class="container mt-5">
 
         <select class="search form-control" name="am" id="am"></select>
@@ -48,7 +49,27 @@
             ajax: {
                 dataType: 'json',
                 url: "<?= site_url('/persona/select') ?>",
-                delay: 500,
+                delay: 250,
+                data: function(params) {
+                    return {
+                        search: params.term
+                    }
+                },
+                processResults: function(data, page) {
+                    return {
+                        results: data
+                    }
+                }
+            }
+        });
+        $('#ap').select2({
+            minimumInputLength: 1,
+            allowClear: true,
+            placeholder: '--- Buscar Personaap ---',
+            ajax: {
+                dataType: 'json',
+                url: "<?= site_url('/persona/selectap') ?>",
+                delay: 250,
                 data: function(params) {
                     return {
                         search: params.term
@@ -62,7 +83,6 @@
             }
         });
         $(document).ready(function() {
-            $('#ap').select2();
             $('#ap').change(function(e) {
                 $.ajax({
                     type: "post",
@@ -74,6 +94,7 @@
                     success: function(response) {
                         if (response.data) {
                             $('#ap').html(response.data);
+                            $('#ap').select2();
 
                         }
 
@@ -90,6 +111,80 @@
 
     $(document).ready(function() {
         persona();
+    });
+
+    function ap() {
+        $('#ap').select2({
+            minimumInputLength: 1,
+            allowClear: true,
+            placeholder: '--- Buscar Persona ap ---',
+            ajax: {
+                dataType: 'json',
+                url: "<?= site_url('/persona/selectap') ?>",
+                delay: 250,
+                data: function(params) {
+                    return {
+                        valor: params.term
+                    }
+                },
+                processResults: function(data, page) {
+                    return {
+                        results: data
+                    }
+                }
+            }
+        });
+
+
+
+    }
+    $(document).ready(function() {
+        ap();
+    });
+
+    $(document).ready(function() {
+        $('#ap').select2();
+
+        $('#ap').change(function() {
+            $.ajax({
+                type: "post",
+                data: 'valor=' + $('#ap').val(),
+                url: "<?= site_url() ?>/persona/selectap",
+                success: function(r) {
+                    $('#tabla').DataTable().ajax.reload();
+                }
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#buscadorvivo1').select2();
+
+        $('#buscadorvivo1').change(function() {
+            $.ajax({
+                type: "post",
+                data: 'valor=' + $('#buscadorvivo1').val(),
+                url: "<?php echo base_url() ?>/ajaxx",
+                success: function(r) {
+                    $('#tabla').DataTable().ajax.reload();
+                }
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#buscadorvivo2').select2();
+
+        $('#buscadorvivo2').change(function() {
+            $.ajax({
+                type: "post",
+                data: 'valor=' + $('#buscadorvivo2').val(),
+                url: "<?php echo base_url() ?>/ajaxx",
+                success: function(r) {
+                    $('#tabla').DataTable().ajax.reload();
+                }
+            });
+        });
     });
 </script>
 
