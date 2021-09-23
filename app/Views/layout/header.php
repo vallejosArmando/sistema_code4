@@ -26,9 +26,10 @@ $session = session();
   <link rel="stylesheet" href="<?php echo base_url() ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>/plugins/fontello/css/fontello.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>/plugins/fontello/css/animation.css">
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="<?php echo base_url() ?>/plugins/select2/css/select2.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>/plugins/select2/css/select2.min.css">
 
-</head>
+
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
   <div class="wrapper">

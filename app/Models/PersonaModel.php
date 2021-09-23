@@ -55,4 +55,46 @@ extends Model
         $builder = $builder->get();
         return $builder->getResult();
     }
+
+    function make_query()
+    {
+        $builder = $this->builder($this->table);
+        if (isset($_POST["search"]["value"])) {
+            $builder->like("nombres", $_POST["search"]["value"]);
+            $builder->orlike("ap", $_POST["search"]["value"]);
+        }
+        if (isset($_POST["order"])) {
+            $builder->orderBy($this->order_column[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
+        } else {
+            $builder->orderBy('id', 'DESC');
+        }
+    }
+    function make_datatables()
+    {
+        $builder = $this->builder($this->table);
+
+        $this->make_query();
+        if ($_POST["length"] != -1) {
+            $builder->limit($_POST['length'], $_POST['start']);
+        }
+        $query = $builder->get();
+        return $query->getResult();
+    }
+    function get_filtered_data()
+    {
+        $builder = $this->builder($this->table);
+
+        $this->make_query();
+        $query = $builder->get()->getRow();
+        return $query();
+    }
+    function get_all_data()
+    {
+        $builder = $this->builder($this->table);
+
+        $builder->select("*");
+        $builder->from($this->table);
+        return $builder->countAllResults();
+    }
+
 }

@@ -61,7 +61,7 @@ class Usurol extends BaseController
     public function index()
     {
 
-        $consulta = $this->aux_usr->listar();
+        $consulta = $this->aux_usurol->listar();
         $matriz = ['titulo' => ' Usuarios Roles', 'datos' => $consulta];
 
         $datos['grupos'] = $this->sos_grupo->where('estado', 1)->findAll();

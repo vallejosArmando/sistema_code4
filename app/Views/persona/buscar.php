@@ -19,6 +19,7 @@
       <div class="col-sm-12 col-md-6">
         <div class="dt-buttons btn-group flex-wrap">
           <div class="row">
+
             <div class="col-3">
               <div class="form-group">
                 <label for="buscar">*Nombre:<input type="text" class="form-control form-control-sm" placeholder="" aria-controls="example1" name="nombres" id="nombres">
@@ -28,22 +29,7 @@
               </div>
 
             </div>
-            <div class="col-3">
-              <div class="form-group">
-                <label for="buscar">Select Country</label>
-                <select name="nombres" class="js-example-basic-single">
-                  <?php
-                  foreach ($datos as $row) { ?>
-                    <option value="<?php echo $row['nombres']; ?>"><?php echo $row['nombres']; ?></option>;
-                  <?php }
-                  ?>
 
-                </select>
-                <input type="submit" id="buscar" value="buscar ">
-
-              </div>
-
-            </div>
             <div class="col-3">
               <div class="form-group">
                 <label for="buscar">*Ap. Paterno:<input type="text" class="form-control form-control-sm" placeholder="" aria-controls="example1" name="ap" id="ap"> <input type="submit" id="buscar" value="buscar"></label>

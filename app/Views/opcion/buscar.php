@@ -6,9 +6,9 @@
     </div>
 
     <div class="card-header">
-        <form action="<?php echo base_url() ?>/acceso/buscar" id="formulario_personas" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo base_url() ?>/opcion/buscar" id="formulario_personas" method="POST" enctype="multipart/form-data">
 
-            <td> <a href="<?php echo base_url() ?>/acceso/agregar" class="btn btn-primary">Agregar</a></td>
+            <td> <a href="<?php echo base_url() ?>/opcion/agregar" class="btn btn-primary">Agregar</a></td>
             <td> &nbsp;&nbsp;</td>
             <td> &nbsp;&nbsp;</td>
             <td> &nbsp;&nbsp;</td>
@@ -17,13 +17,10 @@
                 <input type="submit" id="buscar" value="Buscar ">
             </td>
             <td> &nbsp;</td>
-            <td> <label for="buscar"><input type="text" class="form-control form-control-sm" placeholder="Por opcion" aria-controls="example1" name="id_opcion" id="id_opcion"></label>
+            <td> <label for="buscar"><input type="text" class="form-control form-control-sm" placeholder="Por Nombre" aria-controls="example1" name="nombre" id="nombre"></label>
                 <input type="submit" id="buscar" value="Buscar ">
             </td>
-            <td> &nbsp;</td>
-            <td> <label for="buscar"><input type="text" class="form-control form-control-sm" placeholder="Por Rol" aria-controls="example1" name="id_rol" id="id_rol"></label>
-                <input type="submit" id="buscar" value="Buscar ">
-            </td>
+
         </form>
     </div>
     <!-- /.card-header -->
@@ -33,12 +30,12 @@
                 <tr>
                     <th>ID</th>
                     <th>Grupo</th>
-                    <th>Opciones</th>
-                    <th>Roles</th>
-                    <th>Permisos</th>
+                    <th>Nombre</th>
+                    <th>URL</th>
+                    <th>Mostrar</th>
+                    <th>Orden</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -46,25 +43,27 @@
 
 
                     <tr>
-                        <td><?php echo $data['id'] ?></td>
-                        <td><?php echo $data['grupo'] ?></td>
-                        <td><?php echo $data['nombre'] ?></td>
-                        <td><?php echo $data['rol'] ?></td>
-                        <td><?php echo $data['permisos'] ?></td>
+                        <td><?php echo $data['id']; ?></td>
+                        <td><?php echo $data['grupo']; ?></td>
+                        <td><?php echo $data['nombre']; ?></td>
+                        <td><?php echo $data['op_url']; ?></td>
+                        <td><?php echo $data['mostrar']; ?></td>
+                        <td><?php echo $data['orden']; ?></td>
 
-                        <td> <a href="<?php echo base_url(); ?>/acceso/editar/<?php echo $data['id']; ?>" class="btn btn-success"><i class="nav-icon fas fa-edit"></i></a></td>
-                        <td> <a href="#" data-href="<?php echo base_url() . '/acceso/eliminar/' . $data['id']; ?>" data-toggle="modal" data-target="#confirm-delete" data-placement="top" title="Eliminar registro" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+                        <td> <a href="<?php echo base_url(); ?>/opcion/editar/<?php echo $data['id']; ?>" class="btn btn-success"><i class="nav-icon fas fa-edit"></i></a></td>
+                        <td> <a href="#" data-href="<?php echo base_url() . '/opcion/eliminar/' . $data['id']; ?>" data-toggle="modal" data-target="#confirm-delete" data-placement="top" title="Eliminar registro" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                     </tr>
                 <?php endforeach; ?>
-
+                icon-cancel
             </tbody>
             <tfoot>
                 <tr>
                     <th>ID</th>
                     <th>Grupo</th>
-                    <th>Opciones</th>
-                    <th>Roles</th>
-                    <th>Permisos</th>
+                    <th>Nombre</th>
+                    <th>URL</th>
+                    <th>Mostrar</th>
+                    <th>Orden</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>

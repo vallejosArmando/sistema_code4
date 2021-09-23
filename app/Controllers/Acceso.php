@@ -173,4 +173,27 @@ class Acceso extends BaseController
         echo view('acceso/');
         echo view('layout/footer');
     }
+    public function buscar()
+    {
+
+        $id_grupo = $this->request->getPost('id_grupo');
+        $id_opcion = $this->request->getPost('id_opcion');
+        $id_rol = $this->request->getPost('id_rol');
+
+        $consulta = $this->sos_acceso->buscar($id_grupo, $id_opcion, $id_rol);
+
+        $datoss = [
+            'titulo' => 'Buscar Acceso',
+            'datos' => $consulta,
+        ];
+        $datos['grupos'] = $this->sos_grupo->where('estado', 1)->findAll();
+        $datos['sistem'] = $this->sos_sistema->where('id', 1)->findAll();
+        $datos['opciones'] = $this->sos_opcion->where('estado', 1)->findAll();
+        $datos['accesos'] = $this->sos_acceso->where('estado', 1)->findAll();
+
+
+        echo view('layout/header', $datos);
+        echo view('acceso/buscar', $datoss);
+        echo view('layout/footer');
+    }
 }

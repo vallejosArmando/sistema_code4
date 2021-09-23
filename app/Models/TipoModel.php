@@ -10,12 +10,25 @@ class TipoModel extends Model
     // Uncomment below if you want add primary key
     protected $primaryKey = 'id';
     protected $allowedFields = ['nombre', 'descripcion', 'usuario', 'estado'];
-    public function buscar($nombre, $descripcion)
+    public function buscar($nombre)
+    {
+        $builder = $this->builder($this->table);
+
+        $builder = $builder->like(['id' => $nombre]);
+
+
+        $builder = $builder->get()->getResultArray();
+        if ($builder > 0) {
+            return $builder;
+        } else {
+            return false;
+        }
+    }
+    public function data($nombre)
     {
         $builder = $this->builder($this->table);
 
         $builder = $builder->like(['nombre' => $nombre]);
-        $builder = $builder->like(['descripcion' => $descripcion]);
 
 
         $builder = $builder->get()->getResultArray();

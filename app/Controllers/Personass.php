@@ -15,7 +15,7 @@ class Persona extends BaseController
 
     public function index()
     {
-        return view('persona/home');
+        return view('persona/ho');
     }
 
     public function select()
@@ -28,7 +28,7 @@ class Persona extends BaseController
 
             //$db = \Config\Database::connect();
             $datos = $this->db->table('persona')
-                ->like('nombres', $persona)->get();
+            ->like('nombres', $persona)->get();
             if ($datos->getNumRows() > 0) {
                 $list = [];
                 $key = 0;
@@ -53,7 +53,7 @@ class Persona extends BaseController
 
             //$db = \Config\Database::connect();
             $datos = $this->db->table('persona')
-                ->like('ap', $persona)->get();
+            ->like('ap', $persona)->get();
             if ($datos->getNumRows() > 0) {
                 $list = [];
                 $key = 0;

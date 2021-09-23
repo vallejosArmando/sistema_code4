@@ -132,9 +132,8 @@ class Area extends BAseController
     public function buscarr()
     {
         $nombre = $this->request->getPost('nombre');
-        $descripcion = $this->request->getPost('descripcion');
 
-        $datoss['areas'] = $this->sos_area->buscar($nombre, $descripcion);
+        $datoss['areas'] = $this->sos_area->buscar($nombre);
 
 
         $datos['grupos'] = $this->sos_grupo->where('estado', 1)->findAll();
@@ -146,5 +145,30 @@ class Area extends BAseController
         echo view('layout/header', $datos);
         echo view('empleado/agregar_bs', $datoss);
         echo view('layout/footer');
+    }
+    public function select()
+    {
+
+
+        if ($this->request->isAJAX()) {
+            $persona = $this->request->getGet('id');
+
+
+            //$db = \Config\Database::connect();
+            $datos = $this->db->table('area')
+            ->like('nombre', $persona)->get();
+            if ($datos->getNumRows() > 0) {
+                $list = [];
+                $key = 0;
+                foreach ($datos->getResultArray() as $row) :
+                    $list[$key]['id'] = $row['id'];
+                    $list[$key]['text'] = $row['nombre'];
+                    $key++;
+                endforeach;
+
+
+                echo json_encode($list);
+            }
+        }
     }
 }

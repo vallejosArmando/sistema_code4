@@ -19,12 +19,26 @@ class AreaModel extends Model
         $builder = $builder->where(['fec_insercion' => $f2]);
         return $builder->get()->getResultArray();
     }
-    public function buscar($nombre, $descripcion)
+    public function buscar($nombre)
     {
         $builder = $this->builder($this->table);
 
-        $builder = $builder->like(['nombre' => $nombre]);
-        $builder = $builder->like(['descripcion' => $descripcion]);
+        $builder = $builder->like(['id' => $nombre]);
+
+
+
+        $builder = $builder->get()->getResultArray();
+        if ($builder > 0) {
+            return $builder;
+        } else {
+            return false;
+        }
+    }
+    public function datos($id_area)
+    {
+        $builder = $this->builder($this->table);
+
+        $builder = $builder->like(['nombre' => $id_area]);
 
 
         $builder = $builder->get()->getResultArray();

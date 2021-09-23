@@ -68,8 +68,17 @@
 <script src="<?php echo base_url(); ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?php echo base_url(); ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="<?php echo base_url(); ?>/js/ficha.js"></script>
+<script src="<?php echo base_url(); ?>/plugins/select2/js/select2.js"></script>
+<script src="<?php echo base_url(); ?>/plugins/select2/js/select2.min.js"></script>
+<script src="<?php echo base_url(); ?>/plugins/jquery-3.5.0.js"></script>
+<script src="<?php echo base_url(); ?>/plugins/jquery-3.5.0.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+
+
+
+
 <script>
   $('#confirm-delete').on('show.bs.modal', function(e) {
     $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
@@ -93,8 +102,72 @@
   });
 </script>
 
+<!--<script>
+  function id_tipo() {
+    $('#id_tipo').select2({
 
+    });
+  }
+  $(document).ready(function() {
+    id_tipo();
+  });
+</script>-->
+<script>
+  $('.areas').select2();
+</script>
+<script>
+  $('.tipos').select2();
+</script>
 
+<script>
+  $('.personass').select2();
+  $('.gruposs').select2();
+  $('.roless').select2();
+  $('.opcioness').select2();
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#tabla').DataTable({
+      'processing': true,
+      'serverSide': true,
+      'serverMethod': 'post',
+      'ajax': {
+        'url': "<?= site_url('/persona/getPersona') ?>",
+        'data': function(data) {
+          // CSRF Hash
+          var csrfName = $('.txt_csrfname').attr('name'); // CSRF Token name
+          var csrfHash = $('.txt_csrfname').val(); // CSRF hash
+
+          return {
+            data: data,
+            [csrfName]: csrfHash // CSRF Token
+          };
+        },
+        dataSrc: function(data) {
+
+          // Update token hash
+          $('.personass').val(data.token);
+
+          // Datatable data
+          return data.aaData;
+        }
+      },
+      'columns': [{
+          data: 'id'
+        },
+        {
+          data: 'nombres'
+        },
+        {
+          data: 'ap'
+        },
+        {
+          data: 'am'
+        },
+      ]
+    });
+  });
+</script>
 
 <!-- AdminLTE App -->
 <!-- AdminLTE for demo purposes -->

@@ -8,11 +8,11 @@
       </div>
       <!-- /.card-header -->
       <!-- form start -->
-      <?php if(isset($validation)){ ?>
-<div class="alert alert-danger" >
-<?php echo $validation->listErrors(); ?>
-</div>
-<?php } ?>
+      <?php if (isset($validation)) { ?>
+        <div class="alert alert-danger">
+          <?php echo $validation->listErrors(); ?>
+        </div>
+      <?php } ?>
       <form action="<?php echo base_url() ?>/acceso/insertar" id="formulario_accesos" method="POST" enctype="multipart/form-data">
         <div class="card-body">
 
@@ -22,7 +22,7 @@
                 <label>Grupo</label>
 
 
-                <select class="form-control select2" name="id_grupo" id="id_grupo" style="width: 100%;">
+                <select class="gruposs" name="id_grupo" id="id_grupo" style="width: 100%;">
                   <option selected="selected"></option>
                   <?php foreach ($grupos as $grupo) : ?>
 
@@ -33,7 +33,7 @@
               </div>
               <div class="form-group">
                 <label>Roles</label>
-                <select class="form-control select2" name="id_rol" id="id_rol" style="width: 100%;">
+                <select class="roless" name="id_rol" id="id_rol" style="width: 100%;">
                   <option selected="selected"></option>
                   <?php foreach ($roles as $rr) : ?>
 
@@ -41,7 +41,7 @@
                   <?php endforeach; ?>
                 </select>
               </div>
-         
+
               <!-- /.form-group -->
 
               <!-- /.form-group -->
@@ -54,7 +54,7 @@
                 <label>Opcion</label>
 
 
-                <select class="form-control select2" name="id_opcion" id="id_opcion" style="width: 100%;">
+                <select class="opcioness " name="id_opcion" id="id_opcion" style="width: 100%;">
                   <option selected="selected"></option>
                   <?php foreach ($opciones as $opcion) : ?>
 
@@ -69,11 +69,12 @@
                 <select class="form-control select2" name="permisos" id="permisos" style="width: 100%;">
                   <option selected="selected"></option>
 
-                    <option?></option>
+                  <option?>
+                    </option>
 
-                  
-                  <option value="a">a</option>
-                  <option value="x">x</option>
+
+                    <option value="a">a</option>
+                    <option value="x">x</option>
                 </select>
               </div>
 

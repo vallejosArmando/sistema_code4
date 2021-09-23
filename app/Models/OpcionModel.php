@@ -19,5 +19,23 @@ class OpcionModel extends Model{
          $builder = $builder->get();
          return $builder->getResultArray();
      }
+    public function buscar($id_grupo, $nombre, $op_url)
+    {
+        $builder = $this->builder($this->table);
+        $builder = $builder->where('opcion.estado', 1);
+
+        $builder = $builder->join('grupo', 'acceso.id_grupo = grupo.id');
+        $builder = $builder->like(['grupo.grupo' => $id_grupo]);
+
+        $builder = $builder->like(['opcion.nombre' => $nombre]);
+        $builder = $builder->like(['opcion.op_url' => $op_url]);
+
+        $builder = $builder->get()->getResultArray();
+        if ($builder > 0) {
+            return $builder;
+        } else {
+            return false;
+        }
+    }
  
 }

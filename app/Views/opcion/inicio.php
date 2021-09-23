@@ -4,8 +4,24 @@
   <div class="card-header">
     <h3 class="card-title"><?php echo $titulo ?></h3>
   </div>
+
   <div class="card-header">
-    <td> <a href="<?php echo base_url() ?>/opcion/agregar" class="btn btn-primary">Agregar</a> </td>
+    <form action="<?php echo base_url() ?>/opcion/buscar" id="formulario_personas" method="POST" enctype="multipart/form-data">
+
+      <td> <a href="<?php echo base_url() ?>/opcion/agregar" class="btn btn-primary">Agregar</a></td>
+      <td> &nbsp;&nbsp;</td>
+      <td> &nbsp;&nbsp;</td>
+      <td> &nbsp;&nbsp;</td>
+
+      <td> <label for="buscar"><input type="text" class="form-control form-control-sm" placeholder="Por Grupo" aria-controls="example1" name="id_grupo" id="id_grupo"></label>
+        <input type="submit" id="buscar" value="Buscar ">
+      </td>
+      <td> &nbsp;</td>
+      <td> <label for="buscar"><input type="text" class="form-control form-control-sm" placeholder="Por Nombre" aria-controls="example1" name="nombre" id="nombre"></label>
+        <input type="submit" id="buscar" value="Buscar ">
+      </td>
+
+    </form>
   </div>
   <!-- /.card-header -->
   <div class="card-body">
