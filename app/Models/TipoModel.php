@@ -9,7 +9,7 @@ class TipoModel extends Model
     protected $table      = 'tipo_empleado';
     // Uncomment below if you want add primary key
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nombre', 'descripcion', 'usuario', 'estado'];
+    protected $allowedFields = ['tipo', 'descripcion', 'usuario', 'estado'];
     public function buscar($nombre)
     {
         $builder = $this->builder($this->table);
@@ -28,7 +28,7 @@ class TipoModel extends Model
     {
         $builder = $this->builder($this->table);
 
-        $builder = $builder->like(['nombre' => $nombre]);
+        $builder = $builder->like(['tipo' => $nombre]);
 
 
         $builder = $builder->get()->getResultArray();

@@ -14,7 +14,7 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>Nombre</th>
+          <th>Tipo</th>
           <th>Descripcion</th>
           <th>Editar</th>
           <th>Eliminar</th>
@@ -27,7 +27,7 @@
 
           <tr>
             <td><?php echo $data['id'] ?></td>
-            <td><?php echo $data['nombre'] ?></td>
+            <td><?php echo $data['tipo'] ?></td>
             <td><?php echo $data['descripcion'] ?></td>
             <td> <a href="<?php echo base_url(); ?>/tipo/editar/<?php echo $data['id']; ?>" class="btn btn-success "> <i class="nav-icon fas fa-edit"></i></a></td>
             <td> <a href="#" data-href="<?php echo base_url() . '/tipo/eliminar/' . $data['id']; ?>" data-toggle="modal" data-target="#confirm-delete" data-placement="top" title="Eliminar registro" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>

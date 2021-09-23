@@ -8,7 +8,9 @@
     <form action="<?php echo base_url() ?>/persona/buscarr" id="formulario_personas" method="POST" enctype="multipart/form-data">
 
       <td> <a href="<?php echo base_url() ?>/usuario/nuevo" class="btn btn-primary">Agregar</a> </td>
-
+      <td> &nbsp;&nbsp;</td>
+      <td> &nbsp;&nbsp;</td>
+      <td> &nbsp;&nbsp;</td>
       <td> <label for="buscar"><input type="text" class="form-control form-control-sm" placeholder="Por nombres" aria-controls="example1" name="nombres" id="nombres"></label>
         <input type="submit" id="buscar" value="Buscar ">
       </td>

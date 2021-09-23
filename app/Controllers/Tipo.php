@@ -56,8 +56,7 @@ class Tipo extends baseController
     public function insertar()
     {
         if ($this->request->getMethod() == "post" && $this->validate($this->reglas)) {
-            $this->sos_tipo->save([
-                'nombre' => $this->request->getPost('nombre'),
+            $this->sos_tipo->save(['tipo' => $this->request->getPost('tipo'),
                 'descripcion' => $this->request->getPost('descripcion'),
                 'usuario' => 1,
                 'estado' => 1
@@ -96,7 +95,7 @@ class Tipo extends baseController
         if ($this->request->getMethod() == "post" && $this->validate($this->reglas)) {
 
             $this->sos_tipo->update($this->request->getPost('id'), [
-                'nombre' => $this->request->getPost('nombre'),
+                'tipo' => $this->request->getPost('tipo'),
                 'descripcion' => $this->request->getPost('descripcion')
             ]);
             return redirect()->to(base_url() . '/tipo');
@@ -156,7 +155,7 @@ class Tipo extends baseController
                 $key = 0;
                 foreach ($datos->getResultArray() as $row) :
                     $list[$key]['id'] = $row['id'];
-                    $list[$key]['text'] = $row['nombre'];
+                    $list[$key]['text'] = $row['tipo'];
                     $key++;
                 endforeach;
 

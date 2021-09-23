@@ -186,4 +186,29 @@ class Empleado extends BaseController
         echo view('empleado/agregar_bs', $datos);
         echo view('layout/footer');
     }
+    public function buscar()
+    {
+
+        $id_tipo = $this->request->getPost('id_tipo');
+        $id_area = $this->request->getPost('id_area');
+        $nombre = $this->request->getPost('nombres');
+        $ap = $this->request->getPost('ap');
+
+
+        $consulta = $this->sos_empleado->buscar($id_tipo, $id_area, $nombre, $ap);
+
+        $datoss = [
+            'titulo' => 'Buscar Empleado',
+            'datos' => $consulta,
+        ];
+        $datos['grupos'] = $this->sos_grupo->where('estado', 1)->findAll();
+        $datos['sistem'] = $this->sos_sistema->where('id', 1)->findAll();
+        $datos['opciones'] = $this->sos_opcion->where('estado', 1)->findAll();
+        $datos['accesos'] = $this->sos_acceso->where('estado', 1)->findAll();
+
+
+        echo view('layout/header', $datos);
+        echo view('empleado/buscar', $datoss);
+        echo view('layout/footer');
+    }
 }

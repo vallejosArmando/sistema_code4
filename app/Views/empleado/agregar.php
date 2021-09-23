@@ -26,7 +26,7 @@
                   <option selected="selected"></option>
                   <?php foreach ($tipos as $tipo) : ?>
 
-                    <option value="<?php echo $tipo['id'] ?>"><?php echo $tipo['nombre']; ?></option>
+                    <option value="<?php echo $tipo['id'] ?>"><?php echo $tipo['tipo']; ?></option>
                   <?php endforeach; ?>
 
                 </select>

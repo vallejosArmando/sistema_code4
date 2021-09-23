@@ -5,19 +5,25 @@
     <h3 class="card-title"> <?php echo $titulo ?></h3>
   </div>
   <div class="card-header">
-    <form action="<?php echo base_url() ?>/tipo/buscarr" id="formulario_empleado" method="POST" enctype="multipart/form-data">
+    <form action="<?php echo base_url() ?>/empleado/buscar" id="formulario_empleado" method="POST" enctype="multipart/form-data">
 
       <td> <a href="<?php echo base_url() ?>/empleado/agregar" class="btn btn-primary">Agregar</a> </td>
-      <td> <a href="<?php echo base_url() ?>/empleado/agregar_bs" class="btn btn-primary">Agregar_bs</a> </td>
-      <td> <label for="buscar"><input type="text" class="form-control form-control-sm" placeholder="Por nombres" aria-controls="example1" name="id_tipo" id="id_tipo"></label>
+      <td> &nbsp;</td>
+      <td> &nbsp;</td>
+      <td> &nbsp;</td>
+      <td> <label for="buscar"><input type="text" class="form-control form-control-sm" placeholder="Por Tipo" aria-controls="example1" name="id_tipo" id="id_tipo"></label>
         <input type="submit" id="buscar" value="Buscar ">
       </td>
       <td> &nbsp;</td>
-      <td> <label for="buscar"><input type="text" class="form-control form-control-sm" placeholder="Ap. Paterno" aria-controls="example1" name="id_area" id="id_area"></label>
+      <td> <label for="buscar"><input type="text" class="form-control form-control-sm" placeholder="Por Area" aria-controls="example1" name="id_area" id="id_area"></label>
         <input type="submit" id="buscar" value="Buscar ">
       </td>
       <td> &nbsp;</td>
-      <td>
+      <td> <label for="buscar"><input type="text" class="form-control form-control-sm" placeholder="Por Nombre" aria-controls="example1" name="nombres" id="nombres"></label>
+        <input type="submit" id="buscar" value="Buscar ">
+      </td>
+      <td> &nbsp;</td>
+      <td> <label for="buscar"><input type="text" class="form-control form-control-sm" placeholder="Ap. Paterno" aria-controls="example1" name="ap" id="ap"></label>
         <input type="submit" id="buscar" value="Buscar ">
       </td>
   </div>
@@ -48,7 +54,7 @@
 
           <tr>
             <td><?php echo $data['id']; ?></td>
-            <td><?php echo $data['nomb']; ?></td>
+            <td><?php echo $data['tipo']; ?></td>
             <td><?php echo $data['nombre']; ?></td>
             <td><?php echo $data['nombres']; ?></td>
             <td><?php echo $data['ap']; ?></td>
