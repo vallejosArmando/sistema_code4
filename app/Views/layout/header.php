@@ -15,19 +15,19 @@ $session = session();
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>/public/plugins/fontawesome-free/css/all.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>/public/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>/public/dist/css/adminlte.min.css">
   <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>/plugins/fontello/css/fontello.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>/plugins/fontello/css/animation.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>/plugins/select2/css/select2.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>/public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>/public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>/public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>/public/plugins/fontello/css/fontello.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>/public/plugins/fontello/css/animation.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>/public/plugins/select2/css/select2.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>/public/plugins/select2/css/select2.min.css">
 
 
 
@@ -88,7 +88,7 @@ $session = session();
             <a href="#" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
-                <img src="<?php echo base_url() ?>/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                <img src="<?php echo base_url() ?>/public/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
                     <?php echo $session->usuario ?>
@@ -156,7 +156,7 @@ $session = session();
       <!-- Brand Logo -->
       <a href="<?php echo base_url() ?>/menu" class="brand-link">
         <?php foreach ($sistem as $sist) { ?>
-          <img src=" <?= base_url() ?>/fotos/<?php echo $sist['logo'];  ?> " class="brand-image " style="opacity: .8" width="40" height="40">
+          <img src=" <?= base_url() ?>/public/fotos/<?php echo $sist['logo'];  ?> " class="brand-image " style="opacity: .8" width="40" height="40">
           <span class="brand-text font-weight-light">&nbsp;&nbsp;<?= $sist['nombre']; ?></span>
         <?php } ?>
       </a>
@@ -166,7 +166,7 @@ $session = session();
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="<?php echo base_url() ?>/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="<?php echo base_url() ?>/public/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="#" class="d-block"><?php echo $session->usuario ?> &nbsp; <?php echo $session->rol ?></a>

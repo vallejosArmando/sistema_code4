@@ -23,7 +23,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost/sistema_cosaalt_code4/public/';
+    public $baseURL = 'http://localhost/sistema_cosaalt_code4/';
 
     /**
      * --------------------------------------------------------------------------
